@@ -1,0 +1,35 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '6.0.13'
+}
+
+group = project.property('maven_group')
+version = project.property('mod_version')
+archivesBaseName = project.property('archives_base_name')
+
+repositories {
+    maven { url = 'https://files.minecraftforge.net/maven' }
+    mavenCentral()
+}
+
+ext.minecraft {
+    version = project.property('minecraft_version')
+    run {
+        version = project.property('minecraft_version')
+        tweakers = [
+            'net.minecraftforge.gradle.GradleTweaker',
+            'net.minecraftforge.gradle.CommonRuntimeTweaker',
+            'net.minecraftforge.gradle.UserDevTweaker'
+        ]
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:${project.property('loader_version')}-forge'
+    compileOnly fg.deobf('com.mojang:patchy:1.1.11')
+}
+
+processResources {
+    inputs.property "version", project.property('minecraft_version')
+    inputs.property "mcVersion", project.property('minecraft_version')
+    inputs.property "forgeVersion", project.property('loader_version')
+}

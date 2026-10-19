@@ -1,0 +1,23 @@
+[[mods]]
+modId="chatgptorb"
+displayName="ChatGPT Orb"
+version="${file.jarVersion}"
+credits="Created with EnderDevelopment"
+authors="Your Name"
+description='''
+A lightweight Minecraft mod that adds a floating orb and a chat screen.
+'''
+
+[[dependencies.chatgptorb]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.chatgptorb]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
